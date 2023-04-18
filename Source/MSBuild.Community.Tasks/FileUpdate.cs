@@ -42,6 +42,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Threading;
 using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 
@@ -59,7 +60,7 @@ namespace MSBuild.Community.Tasks
     ///     ReplacementText="$1.$2.$3.123" />
     /// ]]></code>
     /// </example>
-    public class FileUpdate :Task
+    public class FileUpdate : Task
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:FileUpdate"/> class.
@@ -175,7 +176,7 @@ namespace MSBuild.Community.Tasks
         /// (i.e. initialize _useDefaultEncoding with false) and use utf-8-without-bom,  
         /// which is Microsoft's default encoding, only when Encoding property is set 
         /// to "utf-8-without-bom". 
-        private bool _useDefaultEncoding; 
+        private bool _useDefaultEncoding;
 
         private Encoding _encoding = System.Text.Encoding.UTF8;
         /// <summary>
@@ -186,14 +187,14 @@ namespace MSBuild.Community.Tasks
         /// <para>Additionally, <c>utf-8-without-bom</c>can be used.</para></remarks>
         public string Encoding
         {
-            get 
+            get
             {
-                if (_useDefaultEncoding) return "utf-8-without-bom"; 
-                else return _encoding.WebName; 
+                if (_useDefaultEncoding) return "utf-8-without-bom";
+                else return _encoding.WebName;
             }
             set
             {
-                if (value.ToLower().CompareTo("utf-8-without-bom") == 0) _useDefaultEncoding = true; 
+                if (value.ToLower().CompareTo("utf-8-without-bom") == 0) _useDefaultEncoding = true;
                 else _encoding = System.Text.Encoding.GetEncoding(value);
             }
         }
@@ -211,7 +212,7 @@ namespace MSBuild.Community.Tasks
             set { _warnOnNoUpdate = value; }
         }
 
-       
+
 
         #endregion
 
@@ -240,22 +241,22 @@ namespace MSBuild.Community.Tasks
         public override bool Execute()
         {
             RegexOptions options = RegexOptions.None;
-            
+
             if (_ignoreCase)
             {
                 options |= RegexOptions.IgnoreCase;
             }
-            
+
             if (_multiline)
             {
                 options |= RegexOptions.Multiline;
             }
-            
+
             if (_singleline)
             {
                 options |= RegexOptions.Singleline;
             }
-            
+
             if (_replacementCount == 0)
             {
                 _replacementCount = -1;
@@ -278,7 +279,7 @@ namespace MSBuild.Community.Tasks
                     Log.LogMessage("Updating File \"{0}\".", fileName);
 
                     string buffer = "";
-                    
+
                     if (_useDefaultEncoding)
                     {
                         buffer = File.ReadAllText(fileName);
@@ -296,17 +297,32 @@ namespace MSBuild.Community.Tasks
                         {
                             Log.LogWarning(String.Format("No updates were performed on file : {0}.", fileName));
                         }
-                    }                   
-
-                    buffer = replaceRegex.Replace(buffer, _replacementText, _replacementCount);      
-
-                    if (_useDefaultEncoding)
-                    {
-                        File.WriteAllText(fileName, buffer);
                     }
-                    else
+
+                    buffer = replaceRegex.Replace(buffer, _replacementText, _replacementCount);
+
+                    bool b = false;
+                    while (!b)
                     {
-                        File.WriteAllText(fileName, buffer, _encoding);
+                        try
+                        {
+                            if (_useDefaultEncoding)
+                            {
+                                File.WriteAllText(fileName, buffer);
+                            }
+                            else
+                            {
+                                File.WriteAllText(fileName, buffer, _encoding);
+                            }
+
+                            b = true;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            Thread.Sleep(100);
+                            b = false;
+                        }
                     }
                 }
 
