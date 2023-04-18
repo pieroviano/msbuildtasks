@@ -7,7 +7,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>Net4x.$(AssemblyName)</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
   </PropertyGroup>
   <PropertyGroup>
@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" />
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuildTasks.targets" Pack="True" Link="build\MSBuildTasks.targets"/>
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets"/>
     <None Include="MSBuild.Community.Tasks\**\*.cs" Pack="True" PackagePath="src\" />
     <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
 
