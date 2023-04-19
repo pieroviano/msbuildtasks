@@ -39,6 +39,7 @@ Cf. http://msdn.microsoft.com/en-us/library/ms143375.aspx
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
@@ -240,6 +241,7 @@ namespace MSBuild.Community.Tasks
         /// </returns>
         public override bool Execute()
         {
+            Debugger.Launch();
             RegexOptions options = RegexOptions.None;
 
             if (_ignoreCase)

@@ -9,6 +9,8 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName)</PackageId>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+    <PackageProjectUrl>https://github.com/pieroviano/msbuildtasks?organization=pieroviano&amp;organization=pieroviano</PackageProjectUrl>
+    <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
   </PropertyGroup>
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\MSBuild.Community.Tasks.xml</DocumentationFile>
