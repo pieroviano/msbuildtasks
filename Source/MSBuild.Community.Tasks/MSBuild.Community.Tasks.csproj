@@ -61,6 +61,8 @@
     <EmbeddedResource Include="Sandcastle\hana.config" />
     <EmbeddedResource Include="Sandcastle\prototype.config" />
     <EmbeddedResource Include="Sandcastle\vs2005.config" />
+    <Content Include="bin\Debug\net6.0\publish\MSBuild.Community.Tasks.deps.json" />
+    <Content Include="bin\Debug\net6.0\publish\MSBuild.Community.Tasks.xml" />
     <Content Include="FtpUpload\SomeDevNotesOnFtpUpload.txt" />
     <Content Include="MSBuild.Community.Tasks.Targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
