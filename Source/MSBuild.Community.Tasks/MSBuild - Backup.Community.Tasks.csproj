@@ -24,19 +24,16 @@
     <Version>1.5.0</Version>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackAsTool>True</PackAsTool>
-    <ToolCommandName />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.16.0" />
+    <PackageReference Include="DotNetZip" Version="1.11.0" />
+    <PackageReference Include="FSharp.Compiler.CodeDom" Version="1.0.0.1" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-    <PackageReference Include="System.DirectoryServices" Version="7.0.1" />
-    <PackageReference Include="System.Management" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" Link="build\MSBuild.Community.Tasks.dll" />

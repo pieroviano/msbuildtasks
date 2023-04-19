@@ -3,7 +3,7 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\MSBuild.Community.Tasks\MSBuild.Community.Tasks.snk</AssemblyOriginatorKeyFile>
-    <TargetFramework>net40</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <OutputPath>.\bin\$(Configuration)\</OutputPath>
@@ -17,17 +17,13 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.11.0" />
-    <PackageReference Include="FSharp.Compiler.CodeDom" Version="1.0.0.1" />
-    <PackageReference Include="NUnit" Version="3.2.1" />
-    <PackageReference Include="RhinoMocks" Version="3.6.1" />
+    <PackageReference Include="DotNetZip" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.5.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="Rhino.Mocks.Core" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Tasks.v4.0" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
-    <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MSBuild.Community.Tasks\MSBuild.Community.Tasks.csproj" />

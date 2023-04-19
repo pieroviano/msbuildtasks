@@ -28,6 +28,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -51,7 +52,7 @@ namespace MSBuild.Community.Tasks.Sandcastle
         /// </summary>
         public SandcastleToolBase()
         {
-            EnviromentVariables = new StringDictionary();
+            EnviromentVariables = new Dictionary<string, string>();
             SandcastleEnviroment = new SandcastleEnviroment();
 
             EnviromentVariables["DXROOT"] = SandcastleEnviroment.SandcastleRoot;
@@ -67,7 +68,7 @@ namespace MSBuild.Community.Tasks.Sandcastle
         /// Gets or sets the enviroment variables.
         /// </summary>
         /// <value>The enviroment variables.</value>
-        internal StringDictionary EnviromentVariables { get; set; }
+        internal Dictionary<string, string> EnviromentVariables { get; set; }
 
         /// <summary>
         /// Gets or sets the sandcastle install root directory.
@@ -165,7 +166,7 @@ namespace MSBuild.Community.Tasks.Sandcastle
         /// </summary>
         /// <value></value>
         /// <returns>The override value of the PATH environment variable.</returns>
-        protected override StringDictionary EnvironmentOverride
+        protected override Dictionary<string, string> EnvironmentOverride
         {
             get
             {

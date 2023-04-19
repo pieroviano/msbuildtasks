@@ -593,10 +593,12 @@ namespace MSBuild.Community.Tasks
                     provider = new Microsoft.VisualBasic.VBCodeProvider();
                     outputFile = Path.ChangeExtension(outputFile, ".vb");
                     break;
+#if !NET6_0_OR_GREATER
                 case FSharp_cl:
                     provider = new FSharp.Compiler.CodeDom.FSharpCodeProvider();
                     outputFile = Path.ChangeExtension(outputFile, ".fs");
                     break;
+#endif
                 case CPP:
                     // We load the CppCodeProvider via reflection since a hard reference would 
                     // require client machines to have the provider installed just to run the task.
@@ -799,7 +801,7 @@ namespace MSBuild.Community.Tasks
             return result;
         }
 
-        #endregion Private Methods
+#endregion Private Methods
 
     }
 }
