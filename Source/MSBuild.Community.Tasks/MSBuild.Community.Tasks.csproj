@@ -25,7 +25,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackAsTool>True</PackAsTool>
-    <ToolCommandName />
+    <ToolCommandName></ToolCommandName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.16.0" />
@@ -39,14 +39,18 @@
     <Reference Include="Microsoft.Build.Framework" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" Link="build\MSBuild.Community.Tasks.dll" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\"
+          Link="build\MSBuild.Community.Tasks.dll" />
     <None Include="..\..\readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets"
+          PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
     <None Include="MSBuild.Community.Tasks\**\*.cs" Pack="True" PackagePath="src\" />
     <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\publish\MSBuild.Community.Tasks.xml"
+          Link="tools\$(Configuration)\$(TargetFramework)\publish\MSBuild.Community.Tasks.xml" />
 
     <Compile Include="..\GlobalAssemblyInfo.cs" Link="GlobalAssemblyInfo.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
@@ -56,18 +60,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MSBuild.Community.Tasks.snk" />
-    <None Include="AdditionalDocumentation.xml" />
+    <Content Include="MSBuild.Community.Tasks.snk" Pack="True" />
+    <Content Include="AdditionalDocumentation.xml" Pack="True" />
     <EmbeddedResource Include="Sandcastle\hana.config" />
     <EmbeddedResource Include="Sandcastle\prototype.config" />
     <EmbeddedResource Include="Sandcastle\vs2005.config" />
-    <Content Include="bin\Debug\net6.0\publish\MSBuild.Community.Tasks.deps.json" />
-    <Content Include="bin\Debug\net6.0\publish\MSBuild.Community.Tasks.xml" />
-    <Content Include="FtpUpload\SomeDevNotesOnFtpUpload.txt" />
-    <Content Include="MSBuild.Community.Tasks.Targets">
+    <Content Include="FtpUpload\SomeDevNotesOnFtpUpload.txt" Pack="True" />
+    <Content Include="MSBuild.Community.Tasks.Targets" Pack="True">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NUnitReport.xsl">
+    <Content Include="NUnitReport.xsl" Pack="True">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
