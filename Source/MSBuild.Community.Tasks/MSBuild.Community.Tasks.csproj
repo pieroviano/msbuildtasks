@@ -24,8 +24,7 @@
     <Version>1.5.0</Version>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackAsTool>True</PackAsTool>
-    <ToolCommandName></ToolCommandName>
+    <IncludeBuildOutput>False</IncludeBuildOutput>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.16.0" />
@@ -59,6 +58,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\$(Configuration)\$(TargetFramework)\publish\**\*.*" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'!='Debug'">
+    <None Remove="bin\$(Configuration)\$(TargetFramework)\publish\**\*.pdb" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
+  </ItemGroup>
+
   <ItemGroup>
     <Content Include="MSBuild.Community.Tasks.snk" Pack="True" />
     <Content Include="AdditionalDocumentation.xml" Pack="True" />
