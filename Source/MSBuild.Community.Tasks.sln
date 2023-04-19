@@ -13,9 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests Projects", "Tests Projects", "{FCC5A863-5D5E-4EB9-B3B1-69BBB6655492}"
-	ProjectSection(SolutionItems) = preProject
-		..\MSBuildTasks.nuspec = ..\MSBuildTasks.nuspec
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSBuild Scripts", "MSBuild Scripts", "{0D470952-AD01-4FD8-ACAA-9340AF1A6674}"
 	ProjectSection(SolutionItems) = preProject
