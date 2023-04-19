@@ -22,34 +22,30 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <Version>1.5.0</Version>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <IncludeBuildOutput>False</IncludeBuildOutput>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.16.0" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-    <PackageReference Include="System.DirectoryServices" Version="7.0.1" />
-    <PackageReference Include="System.Management" Version="7.0.1" />
+    <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" PrivateAssets="all" IncludeAssets="all" />
+    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" PrivateAssets="all" IncludeAssets="all" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" PrivateAssets="all" IncludeAssets="all" />
+    <PackageReference Include="System.DirectoryServices" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
+    <PackageReference Include="System.Management" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\"
-          Link="build\MSBuild.Community.Tasks.dll" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" Link="build\MSBuild.Community.Tasks.dll" />
     <None Include="..\..\readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets"
-          PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
     <None Include="MSBuild.Community.Tasks\**\*.cs" Pack="True" PackagePath="src\" />
     <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
-    <None Include="bin\$(Configuration)\$(TargetFramework)\publish\MSBuild.Community.Tasks.xml"
-          Link="tools\$(Configuration)\$(TargetFramework)\publish\MSBuild.Community.Tasks.xml" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml" Link="tools\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml" />
 
     <Compile Include="..\GlobalAssemblyInfo.cs" Link="GlobalAssemblyInfo.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
@@ -59,10 +55,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\publish\**\*.*" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
+    <None Include="bin\$(Configuration)\$(TargetFramework)\**\*.*" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'!='Debug'">
-    <None Remove="bin\$(Configuration)\$(TargetFramework)\publish\**\*.pdb" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
+    <None Remove="bin\$(Configuration)\$(TargetFramework)\**\*.pdb" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -57,7 +57,7 @@ namespace MSBuild.Community.Tasks.Services
                     return Registry.CurrentConfig;
                 case RegistryHive.CurrentUser:
                     return Registry.CurrentUser;
-#if !NET6_0_OR_GREATER
+#if !NET5_0_OR_GREATER
                 case RegistryHive.DynData:
                     return Registry.DynData;
 #endif
