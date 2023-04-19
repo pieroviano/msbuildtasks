@@ -11,9 +11,17 @@
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
     <PackageProjectUrl>https://github.com/pieroviano/msbuildtasks?organization=pieroviano&amp;organization=pieroviano</PackageProjectUrl>
     <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
-  </PropertyGroup>
-  <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\MSBuild.Community.Tasks.xml</DocumentationFile>
+    <Title>MSBuild.Community.Tasks</Title>
+    <Company>LoreSoft</Company>
+    <Description>The MSBuild Community Tasks project is a collection of open source tasks for MSBuild.</Description>
+    <Company>LoreSoft</Company>
+    <Authors>LoreSoft</Authors>
+    <Copyright>Copyright (c) 2016, LoreSoft</Copyright>
+    <PackageTags>MSBuild build tasks</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Version>1.5.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.11.0" />
@@ -29,7 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" />
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets"/>
+    <None Include="..\..\readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
     <None Include="MSBuild.Community.Tasks\**\*.cs" Pack="True" PackagePath="src\" />
     <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
 
