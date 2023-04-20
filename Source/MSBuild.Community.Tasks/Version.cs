@@ -29,6 +29,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
@@ -101,6 +102,7 @@ namespace MSBuild.Community.Tasks
         /// </summary>
         public Version()
         {
+            Debugger.Launch();
         }
 
         #endregion Constructor

@@ -68,6 +68,7 @@ namespace MSBuild.Community.Tasks
         /// </summary>
         public FileUpdate()
         {
+            Debugger.Launch();
             ItemsNotUpdated = null;
             AllItemsUpdated = true;
 
@@ -241,7 +242,6 @@ namespace MSBuild.Community.Tasks
         /// </returns>
         public override bool Execute()
         {
-            Debugger.Launch();
             RegexOptions options = RegexOptions.None;
 
             if (_ignoreCase)
