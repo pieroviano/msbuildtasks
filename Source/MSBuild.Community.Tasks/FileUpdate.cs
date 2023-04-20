@@ -68,7 +68,10 @@ namespace MSBuild.Community.Tasks
         /// </summary>
         public FileUpdate()
         {
-            Debugger.Launch();
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("Debug")))
+            {
+                Debugger.Launch();
+            }
             ItemsNotUpdated = null;
             AllItemsUpdated = true;
 

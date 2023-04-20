@@ -102,7 +102,10 @@ namespace MSBuild.Community.Tasks
         /// </summary>
         public Version()
         {
-            Debugger.Launch();
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("Debug")))
+            {
+                Debugger.Launch();
+            }
         }
 
         #endregion Constructor
