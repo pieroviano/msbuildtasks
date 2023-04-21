@@ -23,7 +23,7 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <Version>1.5.0</Version>
     <IncludeBuildOutput>False</IncludeBuildOutput>
-    <OutputType>Exe</OutputType>
+    <OutputType Condition="'$(TargetFramework)'=='net6.0'">Exe</OutputType>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net6.0' or '$(TargetFramework)'=='net6.0'">
     <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
