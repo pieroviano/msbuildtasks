@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+#if !NET20
 using System.Linq;
+#endif
 using System.Runtime.InteropServices;
 using System.Text;
 

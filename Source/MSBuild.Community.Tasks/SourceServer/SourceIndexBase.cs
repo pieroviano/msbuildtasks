@@ -27,6 +27,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #endregion
 
+#if !NET20
 using System;
 using System.IO;
 using System.Linq;
@@ -327,3 +328,4 @@ namespace MSBuild.Community.Tasks.SourceServer
         }
     }
 }
+#endif

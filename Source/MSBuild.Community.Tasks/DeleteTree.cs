@@ -27,6 +27,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #endregion
 
+#if !NET20
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -235,8 +236,11 @@ namespace MSBuild.Community.Tasks
                 Log.LogError(Properties.Resources.DeleteTreeInvalidRetryDelay, RetryDelayMilliseconds);
                 return false;
             }
-
+#if NET35
+            if (Directories.Any(x => string.IsNullOrEmpty(x.ItemSpec?.Trim())))
+#else
             if (Directories.Any(x => string.IsNullOrWhiteSpace(x.ItemSpec)))
+#endif
             {
                 Log.LogError(Properties.Resources.DeleteTreeInvalidDirectoriesPaths);
                 return false;
@@ -322,3 +326,4 @@ namespace MSBuild.Community.Tasks
         }
     }
 }
+#endif

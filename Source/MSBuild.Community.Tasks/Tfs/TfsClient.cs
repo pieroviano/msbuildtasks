@@ -27,6 +27,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #endregion
 
+#if !NET20
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -536,3 +537,4 @@ namespace MSBuild.Community.Tasks.Tfs
         }
     }
 }
+#endif

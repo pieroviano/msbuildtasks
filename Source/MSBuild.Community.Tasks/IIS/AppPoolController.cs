@@ -36,7 +36,9 @@ using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 using System.Management;
 using Microsoft.Web.Administration;
+#if !NET20
 using System.Linq;
+#endif
 
 namespace MSBuild.Community.Tasks.IIS
 {

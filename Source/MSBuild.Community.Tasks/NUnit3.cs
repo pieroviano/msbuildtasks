@@ -458,7 +458,11 @@ namespace MSBuild.Community.Tasks
 
             if (Directory.Exists(nunitPath) == false)
             {
+#if !NET35
                 nunitPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+#else
+                nunitPath = Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+#endif
                 nunitPath = Path.Combine(nunitPath, DEFAULT_NUNIT_DIRECTORY);    
             }
 

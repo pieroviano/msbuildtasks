@@ -242,10 +242,10 @@ namespace MSBuild.Community.Tasks
                     {
                         zip.ParallelDeflateThreshold = -1;
                     }
-
+#if !NET35
                     zip.AlternateEncoding = System.Text.Encoding.Unicode;
                     zip.AlternateEncodingUsage = ZipOption.AsNecessary;
-
+#endif
                     // make sure level in range
                     ZipLevel = System.Math.Max(0, ZipLevel);
                     ZipLevel = System.Math.Min(9, ZipLevel);

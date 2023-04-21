@@ -60,9 +60,22 @@ namespace MSBuild.Community.Tasks
       }
 
       SupportedAlgorithm alg;
-      if( !Enum.TryParse( this.Algorithm, true, out alg ) )
-      {
-        Log.LogError( "Unsupported algorithm type: {0}", this.Algorithm );
+#if NET35
+        bool b = true;
+        try
+        {
+            alg = (SupportedAlgorithm)Enum.Parse(typeof(SupportedAlgorithm),this.Algorithm);
+        }
+        catch (Exception e)
+        {
+            b = false;
+        }
+        if( !b )
+#else
+            if (!Enum.TryParse(this.Algorithm, true, out alg))
+#endif
+            {
+                Log.LogError( "Unsupported algorithm type: {0}", this.Algorithm );
         return false;
       }
 
@@ -94,7 +107,7 @@ namespace MSBuild.Community.Tasks
 
       return true;
     } 
-    #endregion
+#endregion
 
     string ByteArrayToHexString(byte[] array)
     {

@@ -593,7 +593,7 @@ namespace MSBuild.Community.Tasks
                     provider = new Microsoft.VisualBasic.VBCodeProvider();
                     outputFile = Path.ChangeExtension(outputFile, ".vb");
                     break;
-#if !NET5_0_OR_GREATER
+#if !NET5_0_OR_GREATER && !NET35
                 case FSharp_cl:
                     provider = new FSharp.Compiler.CodeDom.FSharpCodeProvider();
                     outputFile = Path.ChangeExtension(outputFile, ".fs");

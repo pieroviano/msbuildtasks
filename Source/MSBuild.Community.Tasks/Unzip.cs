@@ -32,7 +32,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+#if !NET20
 using System.Linq;
+#endif
 using Ionic.Zip;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;

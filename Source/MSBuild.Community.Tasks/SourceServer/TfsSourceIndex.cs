@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET20
+using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Diagnostics;
@@ -226,3 +227,4 @@ namespace MSBuild.Community.Tasks.SourceServer
         }
     }
 }
+#endif

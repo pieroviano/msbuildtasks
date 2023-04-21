@@ -2,7 +2,7 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>MSBuild.Community.Tasks.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>net40;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net35;net40;net5.0;net6.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -48,6 +48,15 @@
     <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net35'">
+    <PackageReference Include="DotNetZip" Version="1.9.0" />
+    <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />

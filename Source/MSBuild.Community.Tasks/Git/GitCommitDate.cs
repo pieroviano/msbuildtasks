@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+#if !NET20
 using System.Linq;
+#endif
 using System.Text;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;

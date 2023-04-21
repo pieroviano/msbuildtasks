@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
+#if !NET20
 using System.Linq;
+#endif
 using System.Xml;
 
 namespace MSBuild.Community.Tasks.DependencyGraph
@@ -11,6 +14,9 @@ namespace MSBuild.Community.Tasks.DependencyGraph
     /// </summary>
     public class ProjectFileParser
     {
+#if NET20
+        public delegate T2 Func<T1, T2>(T1 t1);
+#endif
         private XmlDocument _xml;
 
         private XmlElement DocumentElement

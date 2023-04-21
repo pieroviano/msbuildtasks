@@ -220,7 +220,11 @@ namespace MSBuild.Community.Tasks.Git
         {
             base.LogEventsFromTextOutput(singleLine, messageImportance);
 
+#if NET35
+            if (!string.IsNullOrEmpty(singleLine?.Trim()))
+#else
             if (!string.IsNullOrWhiteSpace(singleLine))
+#endif
             {
                 var messageItem = new TaskItem(singleLine);
                 _consoleOut.Add(messageItem);
