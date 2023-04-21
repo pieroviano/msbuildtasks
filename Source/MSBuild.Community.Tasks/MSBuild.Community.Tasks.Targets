@@ -3,6 +3,7 @@
 
   <PropertyGroup>
     <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == '' and '$(MSBuildThisFile)' == 'MSBuild.Community.Tasks.Targets'">$(MSBuildThisFileDirectory)</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == '' and '$(MSBuildThisFile)' == 'MSBuildTasks.targets' and '$(TargetFramework)' == 'net35'">$(MSBuildThisFileDirectory)..\tools\net35</MSBuildCommunityTasksPath>
     <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == '' and '$(MSBuildThisFile)' == 'MSBuildTasks.targets' and '$(TargetFramework)' == 'net40'">$(MSBuildThisFileDirectory)..\tools\net40</MSBuildCommunityTasksPath>
     <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == '' and '$(MSBuildThisFile)' == 'MSBuildTasks.targets' and '$(TargetFramework)' == 'net45'">$(MSBuildThisFileDirectory)..\tools\net40</MSBuildCommunityTasksPath>
     <MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == '' and '$(MSBuildThisFile)' == 'MSBuildTasks.targets' and '$(TargetFramework)' == 'net451'">$(MSBuildThisFileDirectory)..\tools\net40</MSBuildCommunityTasksPath>
