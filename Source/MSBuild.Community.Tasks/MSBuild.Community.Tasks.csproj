@@ -23,18 +23,18 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <Version>1.5.0</Version>
     <IncludeBuildOutput>False</IncludeBuildOutput>
-    <OutputType Condition="'$(TargetFramework)'=='net6.0'">Exe</OutputType>
+    <OutputType Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'">Exe</OutputType>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net5.0-windows'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
     <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="System.DirectoryServices" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="System.Management" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" PrivateAssets="all" IncludeAssets="all" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net6.0' or '$(TargetFramework)'=='net6.0-windows'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net6.0'">
     <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" PrivateAssets="all" IncludeAssets="all" />
