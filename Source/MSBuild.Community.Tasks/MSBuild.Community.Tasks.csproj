@@ -46,23 +46,20 @@
     <PackageReference Include="DotNetZip" Version="1.11.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="FSharp.Compiler.CodeDom" Version="1.0.0.1" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
-    <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.ServiceProcess" />
+    <Reference Private="true" Include="Microsoft.Build.Framework" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="Microsoft.Build.Utilities.v4.0" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.DirectoryServices" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.Management" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.ServiceProcess" PrivateAssets="all" IncludeAssets="all" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net35'">
     <PackageReference Include="DotNetZip" Version="1.9.0" PrivateAssets="all" IncludeAssets="all" />
     <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Utilities" />
-    <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.ServiceProcess" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Private="true" Include="Microsoft.Build.Framework" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="Microsoft.Build.Utilities" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.DirectoryServices" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.Management" PrivateAssets="all" IncludeAssets="all" />
+    <Reference Private="true" Include="System.ServiceProcess" PrivateAssets="all" IncludeAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" Link="build\MSBuild.Community.Tasks.dll" />
