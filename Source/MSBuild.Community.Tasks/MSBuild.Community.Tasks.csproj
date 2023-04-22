@@ -153,4 +153,7 @@
     <Compile Remove="Tfs\Proxies\WorkspaceVersionSpec.cs" />
     <Compile Remove="Tfs\Proxies\Workstation.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="MockBuild.cs" />
+  </ItemGroup>
 </Project>

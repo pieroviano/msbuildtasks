@@ -3,7 +3,7 @@ using System.Collections;
 using System.Text;
 using Microsoft.Build.Framework;
 
-namespace MSBuild.Community.Tasks.Tests
+namespace MSBuild.Community.Tasks
 {
     /// <summary>
     /// Build Engine Used for Testing Tasks
