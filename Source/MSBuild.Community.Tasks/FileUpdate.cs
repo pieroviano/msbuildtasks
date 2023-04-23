@@ -43,7 +43,6 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Threading;
 using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 
@@ -325,7 +324,7 @@ namespace MSBuild.Community.Tasks
                         catch (Exception e)
                         {
                             Console.WriteLine(e);
-                            Thread.Sleep(100);
+                            System.Threading.Thread.Sleep(100);
                             b = false;
                         }
                     }
