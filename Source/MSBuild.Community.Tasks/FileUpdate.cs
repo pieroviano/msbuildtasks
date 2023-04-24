@@ -39,6 +39,7 @@ Cf. http://msdn.microsoft.com/en-us/library/ms143375.aspx
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -50,6 +51,16 @@ using Microsoft.Build.Framework;
 
 namespace MSBuild.Community.Tasks
 {
+    public class ValueEventArgs : CancelEventArgs
+    {
+        public ValueEventArgs(String value)
+        {
+            Value = value;
+        }
+
+        public String Value { get; }
+    }
+
     /// <summary>
     /// Replace text in file(s) using a Regular Expression.
     /// </summary>
@@ -62,6 +73,8 @@ namespace MSBuild.Community.Tasks
     /// </example>
     public class FileUpdate : Task
     {
+        public event EventHandler<ValueEventArgs> FileRead;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:FileUpdate"/> class.
         /// </summary>
@@ -291,6 +304,13 @@ namespace MSBuild.Community.Tasks
                     else
                     {
                         buffer = File.ReadAllText(fileName, _encoding);
+                    }
+
+                    var eventArgs = new ValueEventArgs(buffer);
+                    FileRead.Invoke(this, eventArgs);
+                    if (eventArgs.Cancel)
+                    {
+                        return false;
                     }
 
                     if (!replaceRegex.IsMatch(buffer))
