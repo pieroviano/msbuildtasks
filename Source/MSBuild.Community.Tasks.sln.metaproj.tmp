@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" InitialTargets="ValidateSolutionConfiguration;ValidateToolsVersions;ValidateProjects">
+  <Target Name="GetSolutionConfigurationContents" />
+  <Target Name="Publish" />
+  <Target Name="ValidateProjects" />
+  <Target Name="Clean" />
+  <Target Name="Build" />
+  <Target Name="Rebuild" />
+  <Target Name="ValidateSolutionConfiguration" />
+  <Target Name="ValidateToolsVersions" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportBefore\*" Condition="'$(ImportByWildcardBeforeSolution)' != 'false' and exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportBefore')" />
+  <PropertyGroup Condition="'$(ImportDirectorySolutionProps)' != 'false' and '$(DirectorySolutionPropsPath)' == ''">
+    <_DirectorySolutionPropsFile Condition="'$(_DirectorySolutionPropsFile)' == ''">Directory.Solution.props</_DirectorySolutionPropsFile>
+    <_DirectorySolutionPropsBasePath Condition="'$(_DirectorySolutionPropsBasePath)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), '$(_DirectorySolutionPropsFile)'))</_DirectorySolutionPropsBasePath>
+    <DirectorySolutionPropsPath Condition="'$(_DirectorySolutionPropsBasePath)' != '' and '$(_DirectorySolutionPropsFile)' != ''">$([System.IO.Path]::Combine('$(_DirectorySolutionPropsBasePath)', '$(_DirectorySolutionPropsFile)'))</DirectorySolutionPropsPath>
+  </PropertyGroup>
+  <Import Project="$(DirectorySolutionPropsPath)" Condition="'$(ImportDirectorySolutionProps)' != 'false' and exists('$(DirectorySolutionPropsPath)')" />
+  <Import Project="D:\CommonLibrary\MSBuild.Community.Tasks\Source\before.MSBuild.Community.Tasks.sln.targets" Condition="exists('D:\CommonLibrary\MSBuild.Community.Tasks\Source\before.MSBuild.Community.Tasks.sln.targets')" />
+  <PropertyGroup Condition=" '$(Configuration)' == '' ">
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == '' ">
+    <Platform>Any CPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(AspNetConfiguration)' == '') ">
+    <AspNetConfiguration>$(Configuration)</AspNetConfiguration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SolutionDir>D:\CommonLibrary\MSBuild.Community.Tasks\Source\</SolutionDir>
+    <SolutionExt>.sln</SolutionExt>
+    <SolutionFileName>MSBuild.Community.Tasks.sln</SolutionFileName>
+    <SolutionName>MSBuild.Community.Tasks</SolutionName>
+    <SolutionPath>D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.sln</SolutionPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(MSBuildToolsVersion)' == '2.0'">v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and ('$(MSBuildToolsVersion)' == '3.5' or '$(MSBuildToolsVersion)' == '3.0')">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and !('$(MSBuildToolsVersion)' == '3.5' or '$(MSBuildToolsVersion)' == '3.0' or '$(MSBuildToolsVersion)' == '2.0')">v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{F88A60A8-564C-4E70-92DC-E92DBB897641}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks\MSBuild.Community.Tasks.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{5AC1D006-CA56-4BE1-8250-DBEABBEA0725}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\MSBuild.Community.Tasks.Tests.csproj" BuildProjectInSolution="True">Debug|AnyCPU<ProjectDependency Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" /><ProjectDependency Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" /></ProjectConfiguration>
+  <ProjectConfiguration Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\A\A.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\B\B.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <ItemGroup>
+    <SolutionConfiguration Include="Debug|Any CPU">
+      <Configuration>Debug</Configuration>
+      <Platform>Any CPU</Platform>
+      <Content>
+        <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{F88A60A8-564C-4E70-92DC-E92DBB897641}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks\MSBuild.Community.Tasks.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{5AC1D006-CA56-4BE1-8250-DBEABBEA0725}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\MSBuild.Community.Tasks.Tests.csproj" BuildProjectInSolution="True">Debug|AnyCPU<ProjectDependency Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" /><ProjectDependency Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" /></ProjectConfiguration>
+  <ProjectConfiguration Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\A\A.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\B\B.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+      </Content>
+    </SolutionConfiguration>
+    <SolutionConfiguration Include="Release|Any CPU">
+      <Configuration>Release</Configuration>
+      <Platform>Any CPU</Platform>
+      <Content>
+        <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{F88A60A8-564C-4E70-92DC-E92DBB897641}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks\MSBuild.Community.Tasks.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{5AC1D006-CA56-4BE1-8250-DBEABBEA0725}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\MSBuild.Community.Tasks.Tests.csproj" BuildProjectInSolution="True">Release|AnyCPU<ProjectDependency Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" /><ProjectDependency Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" /></ProjectConfiguration>
+  <ProjectConfiguration Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\A\A.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\B\B.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+      </Content>
+    </SolutionConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{F88A60A8-564C-4E70-92DC-E92DBB897641}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks\MSBuild.Community.Tasks.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{5AC1D006-CA56-4BE1-8250-DBEABBEA0725}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\MSBuild.Community.Tasks.Tests.csproj" BuildProjectInSolution="True">Release|AnyCPU<ProjectDependency Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" /><ProjectDependency Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" /></ProjectConfiguration>
+  <ProjectConfiguration Project="{1291B270-5E1F-425B-ACA1-5253A0067D26}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\A\A.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+  <ProjectConfiguration Project="{885FC778-671A-4934-B76B-BE28334AD9CB}" AbsolutePath="D:\CommonLibrary\MSBuild.Community.Tasks\Source\MSBuild.Community.Tasks.Tests\ILMerge\B\B.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportAfter\*" Condition="'$(ImportByWildcardBeforeSolution)' != 'false' and exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportAfter')" />
+  <PropertyGroup Condition="'$(ImportDirectorySolutionTargets)' != 'false' and '$(DirectorySolutionTargetsPath)' == ''">
+    <_DirectorySolutionTargetsFile Condition="'$(_DirectorySolutionTargetsFile)' == ''">Directory.Solution.targets</_DirectorySolutionTargetsFile>
+    <_DirectorySolutionTargetsBasePath Condition="'$(_DirectorySolutionTargetsBasePath)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), '$(_DirectorySolutionTargetsFile)'))</_DirectorySolutionTargetsBasePath>
+    <DirectorySolutionTargetsPath Condition="'$(_DirectorySolutionTargetsBasePath)' != '' and '$(_DirectorySolutionTargetsFile)' != ''">$([System.IO.Path]::Combine('$(_DirectorySolutionTargetsBasePath)', '$(_DirectorySolutionTargetsFile)'))</DirectorySolutionTargetsPath>
+  </PropertyGroup>
+  <Import Project="$(DirectorySolutionTargetsPath)" Condition="'$(ImportDirectorySolutionTargets)' != 'false' and exists('$(DirectorySolutionTargetsPath)')" />
+  <Import Project="D:\CommonLibrary\MSBuild.Community.Tasks\Source\after.MSBuild.Community.Tasks.sln.targets" Condition="exists('D:\CommonLibrary\MSBuild.Community.Tasks\Source\after.MSBuild.Community.Tasks.sln.targets')" />
+</Project>
