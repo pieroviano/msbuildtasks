@@ -58,7 +58,7 @@ namespace MSBuild.Community.Tasks
             Value = value;
         }
 
-        public String Value { get; }
+        public String Value { get; set; }
     }
 
     /// <summary>
@@ -312,6 +312,8 @@ namespace MSBuild.Community.Tasks
                     {
                         return false;
                     }
+
+                    buffer = eventArgs.Value;
 
                     if (!replaceRegex.IsMatch(buffer))
                     {
