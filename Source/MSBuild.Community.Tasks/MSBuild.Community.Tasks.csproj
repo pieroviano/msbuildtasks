@@ -21,7 +21,8 @@
     <PackageTags>MSBuild build tasks</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <Version>1.5.0</Version>
+    <MSBuildCommunityTasksVersion Condition="'$(MSBuildCommunityTasksVersion)' == ''">1.6.0</MSBuildCommunityTasksVersion>
+    <Version>$(MSBuildCommunityTasksVersion)</Version>
     <IncludeBuildOutput>False</IncludeBuildOutput>
     <OutputType Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'">Exe</OutputType>
   </PropertyGroup>
