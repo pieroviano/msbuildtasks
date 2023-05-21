@@ -7,7 +7,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>$(AssemblyName)</PackageId>
+    <PackageId>Net4x.$(AssemblyName)</PackageId>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
     <PackageProjectUrl>https://github.com/pieroviano/msbuildtasks?organization=pieroviano&amp;organization=pieroviano</PackageProjectUrl>
     <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
@@ -22,7 +22,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <MSBuildCommunityTasksVersion Condition="'$(MSBuildCommunityTasksVersion)' == ''">1.6.0</MSBuildCommunityTasksVersion>
-    <Version>$(MSBuildCommunityTasksVersion)</Version>
+    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
     <IncludeBuildOutput>False</IncludeBuildOutput>
     <OutputType Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'">Exe</OutputType>
   </PropertyGroup>
