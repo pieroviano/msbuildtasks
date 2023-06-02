@@ -1,4 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project = "$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" />
+  <PropertyGroup>
+    <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+  </PropertyGroup>
+<PropertyGroup><Version>$(VersionPrefix).$(VersionSuffix)</Version></PropertyGroup>
   <PropertyGroup>
     <ProductVersion>9.0.30729</ProductVersion>
     <SignAssembly>true</SignAssembly>
@@ -11,15 +19,14 @@
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <PackageId>Net4x.$(AssemblyName)</PackageId>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.16.0" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.5.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="Rhino.Mocks.Core" Version="1.0.3" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.1.0" />
+
+    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework" />
@@ -99,4 +106,5 @@
     <Compile Remove="ILMerge\A\obj\Debug\.NETFramework,Version=v4.0.AssemblyAttributes.cs" />
     <Compile Remove="ILMerge\B\obj\Debug\.NETFramework,Version=v4.0.AssemblyAttributes.cs" />
   </ItemGroup>
+  <Import Project = "$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" />
 </Project>
