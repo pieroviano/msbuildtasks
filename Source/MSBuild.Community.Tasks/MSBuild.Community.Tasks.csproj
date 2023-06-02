@@ -6,7 +6,6 @@
     <TargetFrameworks>net35;net40;net5.0;net6.0</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Net4x.$(AssemblyName)</PackageId>
     <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
@@ -24,7 +23,6 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <Version>$(VersionPrefix).$(VersionSuffix)</Version>
     <IncludeBuildOutput>False</IncludeBuildOutput>
-    <OutputType Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'">Exe</OutputType>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
     <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
