@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--	
 	$Id$
-	Copyright © 2006 Douglas Rohm
+	Copyright (c) 2006 Douglas Rohm
 	MSBuild file to test the Vault tasks 
 	/p:withVault = true
 -->

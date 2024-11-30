@@ -56,7 +56,7 @@
                   GenerateClass="true"
                   AssemblyProduct="MSBuild.Community.Tasks"
                   AssemblyCompany="https://github.com/loresoft/msbuildtasks/"
-                  AssemblyCopyright="Copyright © $(Year) MSBuild Community Tasks Project"
+                  AssemblyCopyright="Copyright (c) $(Year) MSBuild Community Tasks Project"
                   AssemblyConfiguration="$(BuildConfiguration)"
                   AssemblyVersion="$(AssemblyVersion)"
                   AssemblyFileVersion="$(AssemblyFileVersion)"

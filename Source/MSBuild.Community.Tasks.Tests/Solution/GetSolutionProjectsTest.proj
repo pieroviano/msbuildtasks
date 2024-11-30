@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--	
 	$Id$
-	Copyright © 2006 Andy Johns
+	Copyright (c) 2006 Andy Johns
 	MSBuild file to test GetSolutionProjects task
 -->
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--	
 	$Id$
-	Copyright © 2006 Ignaz Kohlbecker
+	Copyright (c) 2006 Ignaz Kohlbecker
 	MSBuild file to test the Time task 
 -->
 

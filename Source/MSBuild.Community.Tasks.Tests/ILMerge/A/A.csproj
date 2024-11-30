@@ -25,7 +25,7 @@
     <Company>https://github.com/loresoft/msbuildtasks/</Company>
     <Product>MSBuild.Community.Tasks</Product>
     <Description>Test assembly for the ILMerge task</Description>
-    <Copyright>Copyright © Ignaz Kohlbecker 2006</Copyright>
+    <Copyright>Copyright (c) Ignaz Kohlbecker 2006</Copyright>
     <AssemblyVersion>1.2.3.4</AssemblyVersion>
     <FileVersion>1.2.3.4</FileVersion>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
