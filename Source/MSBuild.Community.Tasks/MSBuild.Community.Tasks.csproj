@@ -1,159 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project = "$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" />
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>MSBuild.Community.Tasks.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>net35;net40;net5.0;net6.0</TargetFrameworks>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>Net4x.$(AssemblyName)</PackageId>
-    <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
-    <PackageProjectUrl>https://github.com/pieroviano/msbuildtasks?organization=pieroviano&amp;organization=pieroviano</PackageProjectUrl>
-    <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml</DocumentationFile>
-    <Title>MSBuild.Community.Tasks</Title>
-    <Company>LoreSoft</Company>
-    <Description>The MSBuild Community Tasks project is a collection of open source tasks for MSBuild.</Description>
-    <Company>LoreSoft</Company>
-    <Authors>LoreSoft</Authors>
-    <Copyright>Copyright (c) 2016, LoreSoft</Copyright>
-    <PackageTags>MSBuild build tasks</PackageTags>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
-    <IncludeBuildOutput>False</IncludeBuildOutput>
-  </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net5.0'">
-    <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.DirectoryServices" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Management" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" PrivateAssets="all" IncludeAssets="all" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net6.0'">
-    <PackageReference Include="DotNetZip" Version="1.16.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.DirectoryServices" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="System.Management" Version="7.0.1" PrivateAssets="all" IncludeAssets="all" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
-    <PackageReference Include="DotNetZip" Version="1.11.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="FSharp.Compiler.CodeDom" Version="1.0.0.1" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="Microsoft.Build.Framework" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="Microsoft.Build.Utilities.v4.0" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.DirectoryServices" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.Management" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.ServiceProcess" PrivateAssets="all" IncludeAssets="all" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net35'">
-    <PackageReference Include="DotNetZip" Version="1.9.0" PrivateAssets="all" IncludeAssets="all" />
-    <PackageReference Include="Microsoft.Web.Administration" Version="7.0.0" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="Microsoft.Build.Framework" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="Microsoft.Build.Utilities" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.DirectoryServices" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.Management" PrivateAssets="all" IncludeAssets="all" />
-    <Reference Private="true" Include="System.ServiceProcess" PrivateAssets="all" IncludeAssets="all" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Pack="True" PackagePath="tools\" Link="build\MSBuild.Community.Tasks.dll" />
-    <None Include="..\..\readme.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="MSBuild.Community.Tasks.Targets" PackagePath="build\MSBuild.Community.Tasks.targets" Pack="True" Link="build\MSBuild.Community.Tasks.targets" />
-    <None Include="**\*.cs" Pack="True" PackagePath="src\" Condition="'$(Configuration)'!='Release'" />
-    <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
-    <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml" Link="tools\$(TargetFramework)\MSBuild.Community.Tasks.xml" />
-
-    <Compile Include="..\GlobalAssemblyInfo.cs" Link="GlobalAssemblyInfo.cs" />
-    <Compile Update="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\$(Configuration)\$(TargetFramework)\**\*.*" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)'!='Debug'">
-    <None Remove="bin\$(Configuration)\$(TargetFramework)\**\*.pdb" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="MSBuild.Community.Tasks.snk" Pack="True" />
-    <Content Include="AdditionalDocumentation.xml" Pack="True" />
-    <EmbeddedResource Include="Sandcastle\hana.config" />
-    <EmbeddedResource Include="Sandcastle\prototype.config" />
-    <EmbeddedResource Include="Sandcastle\vs2005.config" />
-    <Content Include="FtpUpload\SomeDevNotesOnFtpUpload.txt" Pack="True" />
-    <Content Include="MSBuild.Community.Tasks.Targets" Pack="True">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NUnitReport.xsl" Pack="True">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Mks\MksAdd.cs" />
-    <Compile Remove="Mks\MksCheckin.cs" />
-    <Compile Remove="Mks\MksCheckpoint.cs" />
-    <Compile Remove="Mks\MksCreateSandbox.cs" />
-    <Compile Remove="Mks\MksDopSandbox.cs" />
-    <Compile Remove="Mks\MksDrop.cs" />
-    <Compile Remove="Mks\MksLock.cs" />
-    <Compile Remove="Mks\MksMakeWritable.cs" />
-    <Compile Remove="Mks\MksResync.cs" />
-    <Compile Remove="Mks\MksUnlock.cs" />
-    <Compile Remove="SourceSafe\VssAdd.cs" />
-    <Compile Remove="SourceSafe\VssBase.cs" />
-    <Compile Remove="SourceSafe\VssCheckin.cs" />
-    <Compile Remove="SourceSafe\VssCheckout.cs" />
-    <Compile Remove="SourceSafe\VssClean.cs" />
-    <Compile Remove="SourceSafe\VssDiff.cs" />
-    <Compile Remove="SourceSafe\VssGet.cs" />
-    <Compile Remove="SourceSafe\VssHistory.cs" />
-    <Compile Remove="SourceSafe\VssLabel.cs" />
-    <Compile Remove="SourceSafe\VssRecursiveBase.cs" />
-    <Compile Remove="SourceSafe\VssUndoCheckout.cs" />
-    <Compile Remove="Subversion\SvnLock.cs" />
-    <Compile Remove="Subversion\SvnUnlock.cs" />
-    <Compile Remove="Tfs\IServer.cs" />
-    <Compile Remove="Tfs\TeamFoundationServer.cs" />
-    <Compile Remove="Tfs\TeamFoundationServerException.cs" />
-    <Compile Remove="Tfs\TfsVersion.cs" />
-    <Compile Remove="Vault\VaultAddFile.cs" />
-    <Compile Remove="Vault\VaultBase.cs" />
-    <Compile Remove="Vault\VaultCheckin.cs" />
-    <Compile Remove="Vault\VaultCheckout.cs" />
-    <Compile Remove="Vault\VaultGetFile.cs" />
-    <Compile Remove="Vault\VaultUndoCheckout.cs" />
-    <Compile Remove="Tfs\Proxies\Changeset.cs" />
-    <Compile Remove="Tfs\Proxies\RecursionType.cs" />
-    <Compile Remove="Tfs\Proxies\VersionControlServer.cs" />
-    <Compile Remove="Tfs\Proxies\VersionSpec.cs" />
-    <Compile Remove="Tfs\Proxies\Workspace.cs" />
-    <Compile Remove="Tfs\Proxies\WorkspaceInfo.cs" />
-    <Compile Remove="Tfs\Proxies\WorkspaceVersionSpec.cs" />
-    <Compile Remove="Tfs\Proxies\Workstation.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="MockBuild.cs" />
-  </ItemGroup>
-  <Import Project = "$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" />
+    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" />
+    <PropertyGroup>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>MSBuild.Community.Tasks.snk</AssemblyOriginatorKeyFile>
+        <TargetFrameworks>net35;net40;net5.0;net6.0</TargetFrameworks>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageId>Net4x.$(AssemblyName)</PackageId>
+        <PackageOutputPath>$(SolutionDir)Packages\</PackageOutputPath>
+        <PackageProjectUrl>https://github.com/pieroviano/msbuildtasks?organization=pieroviano&amp;organization=pieroviano</PackageProjectUrl>
+        <PackageLicenseExpression>BSD-2-Clause</PackageLicenseExpression>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml</DocumentationFile>
+        <Title>MSBuild.Community.Tasks</Title>
+        <Company>LoreSoft</Company>
+        <Description>The MSBuild Community Tasks project is a collection of open source tasks for MSBuild.</Description>
+        <Company>LoreSoft</Company>
+        <Authors>LoreSoft</Authors>
+        <Copyright>Copyright (c) 2016, LoreSoft</Copyright>
+        <PackageTags>MSBuild build tasks</PackageTags>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <Version>$(VersionPrefix).$(VersionSuffix)</Version>
+        <IncludeBuildOutput>False</IncludeBuildOutput>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="FSharp.Compiler.CodeDom" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" PrivateAssets="all" Version="1.0.0.1" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="17.5.0" />
+        <PackageReference Include="Microsoft.Web.Administration" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" PrivateAssets="all" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Web.Administration" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="11.1.0" />
+        <PackageReference Include="Net4x.DotNetZip" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
+        <PackageReference Include="System.Data.SqlClient" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="4.8.5" />
+        <PackageReference Include="System.DirectoryServices" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="7.0.1" />
+        <PackageReference Include="System.Management" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="7.0.1" />
+        <PackageReference Include="System.Windows.Extensions" Condition="'$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='net6.0'" IncludeAssets="all" PrivateAssets="all" Version="6.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Microsoft.Build.Framework" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="Microsoft.Build.Utilities.v4.0" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.DirectoryServices" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.Management" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.ServiceProcess" Condition="'$(TargetFramework)'=='net40'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Web.Administration" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" PrivateAssets="all" Version="7.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Microsoft.Build.Framework" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="Microsoft.Build.Utilities" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.DirectoryServices" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.Management" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+        <Reference Include="System.ServiceProcess" Condition="'$(TargetFramework)'=='net35'" IncludeAssets="all" Private="true" PrivateAssets="all" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.*" Link="build\MSBuild.Community.Tasks.dll" Pack="True" PackagePath="tools\" />
+        <None Include="..\..\readme.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="MSBuild.Community.Tasks.Targets" Link="build\MSBuild.Community.Tasks.targets" Pack="True" PackagePath="build\MSBuild.Community.Tasks.targets" />
+        <None Include="**\*.cs" Condition="'$(Configuration)'!='Release'" Pack="True" PackagePath="src\" />
+        <None Include="..\GlobalAssemblyInfo.cs" Pack="True" PackagePath="src\" />
+        <None Include="bin\$(Configuration)\$(TargetFramework)\MSBuild.Community.Tasks.xml" Link="tools\$(TargetFramework)\MSBuild.Community.Tasks.xml" />
+        <Compile Include="..\GlobalAssemblyInfo.cs" Link="GlobalAssemblyInfo.cs" />
+        <Compile Update="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="bin\$(Configuration)\$(TargetFramework)\**\*.*" Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)'!='Debug'">
+        <None Link="tools\%(RecursiveDir)%(Filename)%(Extension)" Pack="True" PackagePath="tools\" Remove="bin\$(Configuration)\$(TargetFramework)\**\*.pdb" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="MSBuild.Community.Tasks.snk" Pack="True" />
+        <Content Include="AdditionalDocumentation.xml" Pack="True" />
+        <EmbeddedResource Include="Sandcastle\hana.config" />
+        <EmbeddedResource Include="Sandcastle\prototype.config" />
+        <EmbeddedResource Include="Sandcastle\vs2005.config" />
+        <Content Include="FtpUpload\SomeDevNotesOnFtpUpload.txt" Pack="True" />
+        <Content Include="MSBuild.Community.Tasks.Targets" Pack="True">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="NUnitReport.xsl" Pack="True">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <SubType>Designer</SubType>
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Mks\MksAdd.cs" />
+        <Compile Remove="Mks\MksCheckin.cs" />
+        <Compile Remove="Mks\MksCheckpoint.cs" />
+        <Compile Remove="Mks\MksCreateSandbox.cs" />
+        <Compile Remove="Mks\MksDopSandbox.cs" />
+        <Compile Remove="Mks\MksDrop.cs" />
+        <Compile Remove="Mks\MksLock.cs" />
+        <Compile Remove="Mks\MksMakeWritable.cs" />
+        <Compile Remove="Mks\MksResync.cs" />
+        <Compile Remove="Mks\MksUnlock.cs" />
+        <Compile Remove="SourceSafe\VssAdd.cs" />
+        <Compile Remove="SourceSafe\VssBase.cs" />
+        <Compile Remove="SourceSafe\VssCheckin.cs" />
+        <Compile Remove="SourceSafe\VssCheckout.cs" />
+        <Compile Remove="SourceSafe\VssClean.cs" />
+        <Compile Remove="SourceSafe\VssDiff.cs" />
+        <Compile Remove="SourceSafe\VssGet.cs" />
+        <Compile Remove="SourceSafe\VssHistory.cs" />
+        <Compile Remove="SourceSafe\VssLabel.cs" />
+        <Compile Remove="SourceSafe\VssRecursiveBase.cs" />
+        <Compile Remove="SourceSafe\VssUndoCheckout.cs" />
+        <Compile Remove="Subversion\SvnLock.cs" />
+        <Compile Remove="Subversion\SvnUnlock.cs" />
+        <Compile Remove="Tfs\IServer.cs" />
+        <Compile Remove="Tfs\TeamFoundationServer.cs" />
+        <Compile Remove="Tfs\TeamFoundationServerException.cs" />
+        <Compile Remove="Tfs\TfsVersion.cs" />
+        <Compile Remove="Vault\VaultAddFile.cs" />
+        <Compile Remove="Vault\VaultBase.cs" />
+        <Compile Remove="Vault\VaultCheckin.cs" />
+        <Compile Remove="Vault\VaultCheckout.cs" />
+        <Compile Remove="Vault\VaultGetFile.cs" />
+        <Compile Remove="Vault\VaultUndoCheckout.cs" />
+        <Compile Remove="Tfs\Proxies\Changeset.cs" />
+        <Compile Remove="Tfs\Proxies\RecursionType.cs" />
+        <Compile Remove="Tfs\Proxies\VersionControlServer.cs" />
+        <Compile Remove="Tfs\Proxies\VersionSpec.cs" />
+        <Compile Remove="Tfs\Proxies\Workspace.cs" />
+        <Compile Remove="Tfs\Proxies\WorkspaceInfo.cs" />
+        <Compile Remove="Tfs\Proxies\WorkspaceVersionSpec.cs" />
+        <Compile Remove="Tfs\Proxies\Workstation.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="MockBuild.cs" />
+    </ItemGroup>
+    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" />
 </Project>

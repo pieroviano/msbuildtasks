@@ -16,8 +16,8 @@
         <PackageId>Net4x.$(AssemblyName)</PackageId>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DotNetZip" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.5.0" />
+        <PackageReference Include="Net4x.DotNetZip" Version="$(DotNetZipVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
         <PackageReference Include="NUnit" Version="3.13.3" />
         <PackageReference Include="Rhino.Mocks.Core" Version="1.0.3" />
